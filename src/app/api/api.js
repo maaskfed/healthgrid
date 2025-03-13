@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'http://localhost:3500', // Update with your backend URL
+    baseURL: 'https://healthgridnodeapp.onrender.com', // Update with your backend URL
     withCredentials: true, // Important for cookies
 });
 
