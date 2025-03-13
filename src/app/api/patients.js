@@ -1,0 +1,50 @@
+export const patients = [
+  {
+    id: "PT-10234",
+    fullname: "Michael Dumbuya",
+    age: 12,
+    gender: "Male",
+    phone: "+23234069351",
+    medical_history: ["Asthma"],
+    current_medications: ["Salbutamol"],
+    triage_notes: "Patient has difficulty breathing",
+    diagnosis: ["Mild asthma attack"],
+    treatment_plan: "Prescribed inhaler and monitor condition",
+    prescription: ["Salbutamol inhaler"],
+    appointment: "2025-03-10T10:00:00.000Z",
+    dob: "2013-03-10",
+    address: "No. 5, Kono Road, Freetown, Sierra Leone"
+  },
+  {
+    id: "PT-10235",
+    fullname: "Fatmata Kamara",
+    age: 34,
+    gender: "Female",
+    phone: "+23278456321",
+    medical_history: ["Hypertension", "Diabetes"],
+    current_medications: ["Lisinopril", "Metformin"],
+    triage_notes: "High blood pressure recorded at 160/100 mmHg",
+    diagnosis: ["Hypertension Stage 2"],
+    treatment_plan: "Increase medication dose and lifestyle changes",
+    prescription: ["Lisinopril 10mg daily"],
+    appointment: "2025-04-02T15:30:00.000Z",
+    dob: "1990-04-02",
+    address: "Plot 34, Lumley Beach Road, Freetown, Sierra Leone"
+  },
+  {
+    id: "PT-10236",
+    fullname: "Sorie Conteh",
+    age: 45,
+    gender: "Male",
+    phone: "+23299345678",
+    medical_history: ["Peptic Ulcer"],
+    current_medications: ["Omeprazole"],
+    triage_notes: "Complains of stomach pain after meals",
+    diagnosis: ["Gastric ulcer"],
+    treatment_plan: "Continue current medication and avoid spicy foods",
+    prescription: ["Omeprazole 20mg daily"],
+    appointment: "2025-03-25T08:00:00.000Z",
+    dob: "1980-03-25", 
+    address: "No. 12, Wellington Street, Bo, Sierra Leone"
+  }
+];

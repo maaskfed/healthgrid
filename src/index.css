@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  --animate-slideIn: slideIn 0.5s ease;
+  --animate-fadeIn: fadeIn 2s ease-in-out;
+  --animate-rotate: rotate 0.5s ease-in-out;
+}
+
+body{
+  background-image: url(/healthgridbg.jpg);
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg)}
+  100% { transform: rotate(720deg)}
+}
+
+@keyframes slideIn {
+  0% { left: 100% }
+  80% { left: 60% }
+  100% { left: 65% }
+}
