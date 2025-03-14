@@ -8,6 +8,7 @@ import API from '../app/api/api.js'
 const UpdateUser = () => {
 
   const {currentUser} = useContext(UserContext)
+  const [error, setError] = useState("")
   const [updatingUser, setUpdatingUser] = useState(false)
 
   const navigate = useNavigate()
@@ -22,6 +23,7 @@ const UpdateUser = () => {
   }
   const updatePatient = async (e) => {
     e.preventDefault();
+    setError("")
     try{
       setUpdatingUser(true)
       const response = await API.patch('/users', formData)
@@ -29,9 +31,13 @@ const UpdateUser = () => {
         setUpdatingUser(false)
         navigate('/sign-in')
       }
-    }catch (e) {
+    }catch (error) {
+      if(error.response.status === 500){
+        setError("Check your internet connection!")
+      }else{
+        setError(error.response.data.message)
+      }
       setUpdatingUser(false)
-      console.log(e)
     }
   }
 
@@ -64,6 +70,7 @@ const UpdateUser = () => {
           <label htmlFor="new_password" className='absolute -left-[10000px]'>New Password:</label>
           <input type="password" name='new_password' placeholder='Enter new password' value={formData.new_password} onChange={(e) => updateFormData(e)} className='border border-[#25D162] p-2 rounded-md text-white outline-none w-full'/>
         </div>
+        {error ? <p className='text-red-600 italic text-center'>{error}</p> : ""}
         {updatingUser ? <button onClick={(e) => updatePatient(e)} className='bg-white w-full p-2 text-xl rounded-md text-[#193920] font-black cursor-pointer hover:opacity-90 active:opacity-80 flex items-center justify-center'><svg className="mr-2 h-5 w-5 animate-spin text-[#193920]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 018 8h-4l3 3 3-3h-4a8 8 0 01-8 8v-4l-3 3 3 3v-4a8 8 0 01-8-8z"/></svg>Updating...</button> : <button onClick={(e) => updatePatient(e)} className='bg-white w-full p-2 text-xl rounded-md text-[#193920] font-black cursor-pointer hover:opacity-90 active:opacity-80'>Update</button>}
